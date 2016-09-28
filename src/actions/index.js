@@ -7,6 +7,10 @@ export function fetchCats(){
   }
 }
 
+export function createCat(newCat) {
+  return {type: 'ADD_CAT', payload: newCat}
+}
+
 export function fetchDogs(){
   const dogs = [{id: 1, name: 'Odie'}];
 

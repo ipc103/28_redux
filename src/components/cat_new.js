@@ -4,6 +4,34 @@ import * as actions from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+class CatNew extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {newCat: {}}
+    this.populateNewCat = this.populateNewCat.bind(this)
+    this.createCat = this.createCat.bind(this)
+  }
+
+  populateNewCat(event) {
+    this.setState({cat: {name: event.target.value}})
+  }
+
+  createCat(event) {
+    event.preventDefault();
+    this.props.actions.createCat(this.state.cat)
+  }
+
+  render() {
+    return (
+      <div>
+        <h3>Add a cat</h3>
+        <input onChange={this.populateNewCat}/>
+        <button onClick={this.createCat}>create</button>
+      </div>
+    )
+  }
+}
+
 function CatNew(props) {
   debugger;
   return <div>NEW CAT PAGE</div>
@@ -18,6 +46,13 @@ const componentCreator = connect(null, mapDispatchToProps)
 export default componentCreator(CatNew);
 
 
+// function addCat(newCatName) {
+//   return {type: "ADD_CAT", payload: {name: newCatName}}
+// }
+
+// this.props.actions.addCat(event.target.value)
+// payload = evet.target.value
+// store.dispatch({type: 'ADD_TODO', payload: payload})
 
 // export default connect(mapDispatchToProps)(CatNew)
 
