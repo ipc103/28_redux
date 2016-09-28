@@ -1,8 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './components/app';
+import { Router, browserHistory } from 'react-router'
+import routes from './routes'
+
+import { Provider } from 'react-redux'
+
+import {createStore} from 'redux'
+import rootReducer from './reducers'
+
+import {fetchCats} from './actions'
+const store = createStore(rootReducer)
+
+store.dispatch(fetchCats())
+
+console.log(store.getState())
+
 
 ReactDOM.render(
-  <App />, document.getElementById('container')
+  <Provider store={store}>
+    <Router history={browserHistory} routes={routes} />
+  </Provider>, document.getElementById('container')
 )
