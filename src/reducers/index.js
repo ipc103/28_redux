@@ -7,4 +7,6 @@ const rootReducer =  combineReducers({
   dogs: dogsReducer
 });
 
+// {cats: whatever gets returned by cats reducer, dogs: whatever gets returned by dog reducer}
+
 export default rootReducer;

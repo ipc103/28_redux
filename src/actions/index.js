@@ -1,10 +1,16 @@
 export function fetchCats(){
-  const cats = [{id: 1, name: 'Maru'}, {id: 2, name: 'Grumpy Cat'}, {id: 3, name: 'Shadow'}];
+
+  const cats = fetch('http://localhost:3000/api/v1/cats').then(response => {
+    return response.json()
+  }).then(catsPayload => {
+    return catsPayload
+  })
 
   return {
     type: 'FETCH_CATS',
     payload: cats
   }
+
 }
 
 export function fetchDogs(){
@@ -14,4 +20,8 @@ export function fetchDogs(){
     type: 'FETCH_DOGS',
     payload: dogs
   }
+}
+
+export function addCat(newCatName) {
+  return {type: 'ADD_CAT', payload: newCatName}
 }
