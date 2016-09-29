@@ -6,12 +6,16 @@ import routes from './routes';
 
 import { Provider } from 'react-redux';
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './reducers';
+import ReduxPromise from 'redux-promise';
 
 import { fetchCats, fetchDogs} from './actions'
 
-const store = createStore(rootReducer);
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+const store = createStoreWithMiddleware(rootReducer)
+
+// const store = createStore(rootReducer, applyMiddleware(promiseMiddleware));
 
 store.dispatch( fetchCats() );
 store.dispatch( fetchDogs() );
