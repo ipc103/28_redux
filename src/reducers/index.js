@@ -1,10 +1,12 @@
-import {combineReducers} from 'redux';
-import catsReducer from './cats_reducer'
-import dogsReducer from './dogs_reducer'
+import { combineReducers } from 'redux';
+import catsReducer from './cats_reducer';
+import dogsReducer from './dogs_reducer';
 
-const rootReducer = combineReducers({
+const rootReducer =  combineReducers({
   cats: catsReducer,
   dogs: dogsReducer
-})
+});
 
-export default rootReducer
+// {cats: whatever gets returned by cats reducer, dogs: whatever gets returned by dog reducer}
+
+export default rootReducer;
