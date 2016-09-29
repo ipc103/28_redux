@@ -15,6 +15,7 @@ import { fetchCats, fetchDogs} from './actions'
 // const createStoreWithMiddleware = applyMiddleware(ReduxPromise)
 const store = createStore(rootReducer, applyMiddleware(ReduxPromise));
 
+
 store.dispatch( fetchCats() );
 store.dispatch( fetchDogs() );
 
