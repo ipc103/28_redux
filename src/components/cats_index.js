@@ -14,8 +14,10 @@ function CatsIndex (props) {
 };
 
 function mapStateToProps(state){
-  return {
-    cats: state.cats
+  if (state.cats.length > 0) {  
+    return {cats: state.cats}
+  }else {
+    return {cats: []}
   }
 }
 
