@@ -44,6 +44,16 @@ export function addCat(newCatFromForm) {
   return {type: 'ADD_CAT', payload: newCatFromApi}
 }
 
+export function fetchHobbies() {
+  const hobbies = fetch('http://localhost:3000/api/v1/hobbies').then(response => {
+    return response.json();
+  }).then(hobbiesPayload => {
+    return hobbiesPayload;
+  })
+
+  return {type: 'FETCH_HOBBIES', payload: hobbies}
+}
+
 
 
 

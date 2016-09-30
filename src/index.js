@@ -10,14 +10,14 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise'
 import rootReducer from './reducers';
 
-import { fetchCats, fetchDogs} from './actions'
+import { fetchCats, fetchDogs, fetchHobbies} from './actions'
 
 // const createStoreWithMiddleware = applyMiddleware(ReduxPromise)
 const store = createStore(rootReducer, applyMiddleware(ReduxPromise));
 
 
 store.dispatch( fetchCats() );
-store.dispatch( fetchDogs() );
+store.dispatch( fetchHobbies() );
 
 console.log(store.getState());
 

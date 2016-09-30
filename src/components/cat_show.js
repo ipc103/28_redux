@@ -11,7 +11,7 @@ function CatShow(props) {
       <li>{props.cat.temperament}</li>
       <h4>Hobbies</h4>
       {props.cat.hobbies.map(hobby => {
-        return <li>{hobby.name}</li>
+        return <li key={hobby.id}>{hobby.name}</li>
       })}
     </div>
   )
